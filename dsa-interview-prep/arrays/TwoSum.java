@@ -3,9 +3,9 @@ package arrays;
 public class TwoSum {
 
     public static void main(String[] args) {
-        int[] arr = { 2, 7, 11, 15 };
+        int[] arr = { 3, 2, 3 };
 
-        int[] ans = find(arr, 8);
+        int[] ans = find(arr, 6);
         for (int num : ans) {
             System.out.print(num + " ");
         }
@@ -13,10 +13,12 @@ public class TwoSum {
     }
 
     public static int[] find(int[] arr, int target) {
-        int n = arr.length - 1;
-        for (int i = 0; i < n - 1; i++) {
-            if (arr[i] + arr[i + 1] == target) {
-                return new int[] { i, i + 1 };
+        int n = arr.length;
+        for (int i = 0; i < n; i++) {
+            for (int j = i + 1; j < n; j++) {
+                if (arr[i] + arr[j] == target) {
+                    return new int[] { i, j };
+                }
             }
         }
         return new int[] { -1 };
